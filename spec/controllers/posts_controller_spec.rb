@@ -98,6 +98,29 @@ describe PostsController do
      get 'show', @params
      response.should render_template(:show)
    end
+ end
+ 
+ describe "DELETE '/posts/:id'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:find_by_id){@p}
+      @p.stub(:destroy)
+      @params={:id=>1}
+    end
+   it "should retrieve the post thanks to the id" do
+     Post.should_receive(:find_by_id)
+     delete 'delete', @params
+   end
+   
+   it "should destroy the post" do
+     @p.should_receive(:destroy)
+     delete 'delete',@params
+   end
+   
+    it "should render the post page" do
+     delete 'delete',@params
+     response.should redirect_to(posts_path)
+   end
  
  end
  

@@ -7,6 +7,7 @@ post '/posts' => 'posts#create'
 get '/posts/:id/edit' => 'posts#edit', :as => :edit_post
 put '/posts/:id' => 'posts#update'
 get '/posts/:id' => 'posts#show', :as => :show_post
+delete '/posts/:id' => 'posts#show', :as => :delete_post
 
 
 
