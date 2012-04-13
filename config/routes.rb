@@ -1,7 +1,10 @@
 Blog::Application.routes.draw do
 
 
-resources :posts, :only => [:index]
+get '/posts' => 'posts#index', :as => :posts
+get '/posts/new' => 'posts#new', :as => :new_post
+post '/posts' => 'posts#create'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
