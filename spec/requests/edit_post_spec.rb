@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'post_edit' do
+describe 'edit_post' do
   before(:each) do
     @post = Post.create(:title => "Post1", :body => "content test")
   end
