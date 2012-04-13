@@ -4,6 +4,9 @@ Blog::Application.routes.draw do
 get '/posts' => 'posts#index', :as => :posts
 get '/posts/new' => 'posts#new', :as => :new_post
 post '/posts' => 'posts#create'
+get '/posts/:id/edit' => 'posts#edit', :as => :edit_post
+put '/posts/:id' => 'posts#update'
+
 
 
   # The priority is based upon order of creation:

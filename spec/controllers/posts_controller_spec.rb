@@ -37,13 +37,13 @@ describe PostsController do
     end
     
     it "should create a new post" do 
-      post 'create',@params
       Post.should_receive(:new)
+      post 'create',@params
     end
     
     it "should save the post" do
-      post 'create',@params
       @p.should_receive(:save)
+      post 'create',@params
     end
     
     it "should redirect to the posts page" do
@@ -52,6 +52,35 @@ describe PostsController do
     end
   end
  
+ 
+ describe "GET '/posts/:id/edit'" do
+   it "should render the form of the post" do
+     get 'edit' , "id"=>"1"
+     response.should render_template(:edit)
+   end
+ end
+ 
+  describe "PUT '/posts/:id'" do
+    before(:each) do
+      @p = double(Post)
+      Post.stub(:find_by_id){@p}
+      @p.stub(:update_attributes)
+      @params={:id=>1,:post=>{:title=>"Newtitle",:body=>"Newcontent"}}
+    end
+    it "should retrieve the post" do
+      Post.should_receive(:find_by_id)
+      put 'update', @params
+    end
+   
+    it "should update the post" do
+      @p.should_receive(:update_attributes)
+      put 'update', @params
+    end
+    it "should redirect to the posts page" do
+      put 'update', @params
+      response.should redirect_to(posts_path)
+    end
+ end
  
 end
 

@@ -19,6 +19,25 @@ describe PostsController do
   it "should provide the alias new_post_path for /posts/new" do
     new_post_path.should == '/posts/new'
   end
+  
+  it "should routes to #create" do
+    post('/posts').should route_to("posts#create")
+  end
  
+  it "should route to the edit form of a post" do
+    { :get => "/posts/1/edit" }.should route_to(
+      :controller => "posts",
+      :action => "edit",
+      :id => "1")
+  end
+  
+  it "should routes to #update" do
+    { :put => "/posts/1" }.should route_to(
+      :controller => "posts",
+      :action => "update",
+      :id => "1")
+  end
+  
+  
   
 end
