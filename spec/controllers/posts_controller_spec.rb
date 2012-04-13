@@ -82,5 +82,24 @@ describe PostsController do
     end
  end
  
+ 
+ describe "GET '/posts/:id'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:find_by_id){@p}
+      @params={:id=>1}
+    end
+   it "should retrieve the post thanks to the id" do
+     Post.should_receive(:find_by_id)
+     get 'show', @params
+   end
+   
+   it "should render the post page" do
+     get 'show', @params
+     response.should render_template(:show)
+   end
+ 
+ end
+ 
 end
 

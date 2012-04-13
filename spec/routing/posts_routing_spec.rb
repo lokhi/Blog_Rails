@@ -38,6 +38,11 @@ describe PostsController do
       :id => "1")
   end
   
-  
+  it "should routes to #show" do
+    { :get => "/posts/1" }.should route_to(
+      :controller => "posts",
+      :action => "show",
+      :id => "1")
+  end
   
 end
