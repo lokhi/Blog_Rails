@@ -14,9 +14,9 @@ describe "add_comment" do
     end
     
     it "should create the post and print the posts" do
-      visit new_post_path(@post)
+      visit show_post_path(@post)
       fill_in('comment[name]', :with => 'louis')
-      fill_in('comment[body]', :with => 'my comment')
+      fill_in('comment[content]', :with => 'my comment')
       click_button('Add the comment')
       current_path.should == show_post_path(@post.id)
       page.should have_content('louis')

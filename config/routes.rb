@@ -1,13 +1,13 @@
 Blog::Application.routes.draw do
 
 
-get '/posts' => 'posts#index', :as => :posts
-get '/posts/new' => 'posts#new', :as => :new_post
-post '/posts' => 'posts#create'
-get '/posts/:id/edit' => 'posts#edit', :as => :edit_post
-put '/posts/:id' => 'posts#update'
-get '/posts/:id' => 'posts#show', :as => :show_post
-delete '/posts/:id' => 'posts#show', :as => :delete_post
+match '/posts' => 'posts#index', :as => :posts, :via => :get
+match '/posts/new' => 'posts#new', :as => :new_post, :via => :get
+match '/posts' => 'posts#create', :via => :post
+match '/posts/:id/edit' => 'posts#edit', :as => :edit_post, :via => :get
+match '/posts/:id' => 'posts#update', :via => :put
+match '/posts/:id' => 'posts#show', :as => :show_post, :via => :get
+match '/posts/:id' => 'posts#delete', :as => :delete_post, :via => :delete
 
 
 
