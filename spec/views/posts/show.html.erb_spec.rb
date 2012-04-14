@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe "posts/show.html.erb" do
+describe "posts/show" do
   it "displays the post" do
     assign(:post, stub_model(Post, :title => "title1",:body => "Content test"))
     render

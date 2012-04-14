@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "posts/new.html.erb" do
+describe "posts/new" do
   it "renders new post form" do
     render
     rendered.should have_selector("form[action='/posts']")

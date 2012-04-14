@@ -1,5 +1,5 @@
 require 'spec_helper'
-describe "posts/index.html.erb" do
+describe "posts/index" do
   it "displays all the posts" do
     assign(:posts, [
            stub_model(Post, :title => "sujet 1"),

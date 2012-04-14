@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "posts/edit.html.erb" do
+describe "posts/edit" do
   before(:each) do
     @post = stub_model(Post,:title => "Post1", :body => "content test")
     assign(:post, @post)
