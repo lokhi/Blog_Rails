@@ -45,4 +45,11 @@ describe PostsController do
       :id => "1")
   end
   
+  it "should routes to add a comment" do
+    { :post => "/posts/1/comments" }.should route_to(
+      :controller => "posts",
+      :post_id => "1",
+      :controller => "comments",
+      :action => "create")
+  end
 end
