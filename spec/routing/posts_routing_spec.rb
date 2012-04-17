@@ -52,4 +52,13 @@ describe PostsController do
       :controller => "comments",
       :action => "create")
   end
+  
+  it "should routes to delete a comment" do
+    { :delete => "/posts/1/comments/2" }.should route_to(
+      :controller => "posts",
+      :post_id => "1",
+      :controller => "comments",
+      :action => "delete",
+      :id => "2")
+  end
 end

@@ -9,6 +9,7 @@ match '/posts/:id' => 'posts#update', :via => :put
 match '/posts/:id' => 'posts#show', :as => :show_post, :via => :get
 match '/posts/:id' => 'posts#delete', :as => :delete_post, :via => :delete
 match '/posts/:post_id/comments' => 'comments#create', :via => :post
+match '/posts/:post_id/comments/:id' => 'comments#delete', :as => :delete_comment, :via => :delete
 
 
 
