@@ -1,0 +1,6 @@
+<ul>
+<% @post.comments.all.each do |comment| %> 
+  <p><%= comment.name %></p>
+  <p><%= comment.content %></p>
+<% end %>
+</ul>
