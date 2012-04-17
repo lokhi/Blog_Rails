@@ -5,13 +5,13 @@ describe 'delete_post' do
     @post = Post.create(:title => "Post1", :body => "content test")
   end
     
-  it "should print a link to show the post on the posts page" do
-    visit posts_path
+  it "should print a link to delete the post on the posts page" do
+    visit show_post_path(@post)
     page.should have_link('Delete' , :href => delete_post_path(@post.id))
   end
   
-  it "should print the post" do
-    visit posts_path
+  it "should not print the post" do
+    visit show_post_path(@post)
     click_link "Delete"
     current_path.should == posts_path
     page.should have_no_content(@post.title)
