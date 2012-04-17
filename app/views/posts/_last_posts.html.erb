@@ -1,0 +1,9 @@
+<div class="last-posts">
+  <ul>
+    <% Post.order("id desc").limit(5).each do |post| %> 
+    <li>
+    <%= link_to post.title,show_post_path(post.id)%>
+    </li>
+    <% end %>
+  </ul>
+</div>
