@@ -1,5 +1,5 @@
 <div class="form">
-<p>Edite the post</p>
+<p>Edit the post</p>
 <%= form_tag("/posts/#{@post.id}", :method => "put") do %>
 <%= label(:post,:title, "title :") %>
 <%= text_field(:post, :title, :size => 55,:class => "form-field") %>

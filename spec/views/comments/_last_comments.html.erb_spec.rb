@@ -12,12 +12,12 @@ describe "/comments/_last_comments" do
   end
   it "should renders title of the five lastes post" do
     render :partial => "comments/last_comments"
-    rendered.should =~ /name6/
-    rendered.should_not =~ /name1/
+    rendered.should =~ /comment6/
+    rendered.should_not =~ /comment1/
   end
   
   it "should renders link with anchor" do
     render :partial => "comments/last_comments"
-    rendered.should have_link('name5', :href => show_post_path(@p.id)+'#comment_5')
+    rendered.should have_link('comment5...', :href => show_post_path(@p.id)+'#comment_5')
   end
 end
