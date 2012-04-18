@@ -14,6 +14,6 @@ describe 'delete_post' do
     visit posts_path(@post)
     click_link "Delete"
     current_path.should == posts_path
-    page.should have_no_content(@post.title)
+    page.should_not have_content(@post.title)
   end
 end
