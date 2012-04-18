@@ -16,4 +16,10 @@ describe "/comments/_form_comment" do
   render :partial => "comments/listing_comment"
   rendered.should have_link('Delete', :href => delete_comment_path(@p.id,@c.id))
  end
+ 
+ 
+ it "should renders the anchor to acces to the comment" do
+   render :partial => "comments/listing_comment"
+   rendered.should =~ /id="comment_1"/
+ end
 end
