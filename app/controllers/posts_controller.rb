@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all  
+   # respond_to do |format|
+    #  format.html
+     # format.rss { render :rss => @posts, :layout => false}
+    #end
   end
   
   def new
@@ -32,5 +36,7 @@ class PostsController < ApplicationController
     post.destroy
     redirect_to(posts_path)
   end
+  
+
   
 end

@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blog</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Blog de lokhi</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <div class="header">
+  </div>
+  <div class="content">
+    <div class="content-left">
+      <%= yield %>
+    </div>
+    <div class="content-right">
+    <%= render 'posts/search_posts' %>
+    <%= render 'posts/last_posts' %>
+    <%= render 'comments/last_comments' %>
+    <%= link_to "Flux RSS", posts_path(:rss)  %>
 
-<%= yield %>
-
-</body>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-toy">
+      &nbsp;
+    </div>
+    <div class="footer-content">
+      Texte du footer
+    </div>
+  </div>
+  </body>
 </html>
