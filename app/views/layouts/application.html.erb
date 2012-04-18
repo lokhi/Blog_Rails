@@ -2,12 +2,17 @@
 <html>
   <head>
     <title>Blog de lokhi</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "style", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <div class="header">
+   <div class="header">
+    <div class="header-box">
+      <div class="logo">
+        <%= link_to image_tag("logo.png", :alt => "Lokhi Labs"), posts_path, :title => "homepage" %>
+      </div>
+    </div>
   </div>
   <div class="content">
     <div class="content-left">
@@ -15,18 +20,34 @@
     </div>
     <div class="content-right">
     <%= render 'posts/search_posts' %>
+    
+    <div class="pres">
+      <div class="pres-avatar">
+         <%= image_tag "pirate.png" , :alt => "Pirate" %>
+      </div>
+      <div class="pres-content">
+        <p>Bienvenue sur mon blog !</p>
+        <br />
+        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin ipsum nisi, elementum interdum sodales et, sagittis at metus. Fusce vel erat non nisi molestie aliquet.</p>
+      </div>
+      <p class="end"></p>
+    </div>
+      
     <%= render 'posts/last_posts' %>
     <%= render 'comments/last_comments' %>
-    <%= link_to "Flux RSS", posts_path(:rss)  %>
+    <%= link_to image_tag("rss.png", :alt => "rss"), posts_path(:rss), :title => "RSS"  %>
 
     </div>
   </div>
+  <p class="end"></p>
   <div class="footer">
-    <div class="footer-toy">
-      &nbsp;
-    </div>
-    <div class="footer-content">
-      Texte du footer
+    <div class="footer-box">
+      <div class="footer-toy">
+        &nbsp;
+      </div>
+      <div class="footer-content">
+        Texte du footer
+      </div>
     </div>
   </div>
   </body>

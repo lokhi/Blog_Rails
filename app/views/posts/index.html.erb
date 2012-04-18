@@ -1,10 +1,22 @@
-<h1>Posts#index</h1>
+<div class="list-posts">
+  <ul>
+  <% @posts.each do |post| %> 
+  <li class="post">
+    <div class="post-title">
+      <h1 class="post-title"><%= post.title %></h1><%= link_to 'Edit',edit_post_path(post.id)%>  |  <%= link_to 'Delete',delete_post_path(post.id), method: :delete %> 
+    
+      <p class="post-date"><%= post.created_at %></p>
+    </div>
+    <div class="post-img-comment"><%= post.comments.count() %></div>
+    <p class="end"></p>
+    <p class="post-body">
+      <%= post.body[0..300]+"..." %>
+    </p>
+     <div class="post-read"><%= link_to 'Show',show_post_path(post.id)%></div>
+     <p class="end"></p>
+  </li>
+  <% end %>
+  </ul>
+  <p><%= link_to 'New Post', new_post_path %></p>
+</div>
 
-<ul>  
-<% @posts.each do |post| %> 
-  <li><%= post.title %> <%= link_to 'Edit',edit_post_path(post.id)%> | <%= link_to 'Show',show_post_path(post.id)%> |  <%= link_to 'Delete',delete_post_path(post.id), method: :delete %> </li>
-<% end %>
-</ul>
-
-
-<p><%= link_to 'New Post', new_post_path %></p>

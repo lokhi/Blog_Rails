@@ -1,10 +1,13 @@
-<div class="form_comment">
+<div class="form">
 <p>Add your comment </p>
 <%= form_tag("/posts/#{@post.id}/comments", :method => "post") do %>
 <%= label(:comment,:name, "name :") %>
-<%= text_field(:comment, :name) %>
-<%= label(:comment,:content, "content :") %>
-<%= text_area(:comment, :content) %>
-<%= submit_tag("Add the comment") %>
+<%= text_field(:comment, :name, :size => 55,:class => "form-field") %>
+<br /><br />
+<%= label(:comment,:content, "content :", :id => "labelarea") %>
+<%= text_area(:comment, :content, :size => "55x10", :class => "form-field") %>
+<br />
+<p class="end"></p>
+<%= submit_tag("Add the comment", :class => "form-submit") %>
 <% end %>
 </div>

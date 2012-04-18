@@ -1,6 +1,13 @@
-<h1><%= @post.title %></h1>
-<br />
-<p><%= @post.body %></p>
-
+<div class="post">
+  <div class="post-title">
+    <h1 class="post-title"><%= @post.title %></h1>
+    <p class="post-date"><%= @post.created_at %></p>
+  </div>
+  <div class="post-img-comment"><%= @post.comments.count() %></div>
+  <p class="end"></p>
+  <p class="post-body">
+    <%= @post.body %>
+  </p>
+</div>
 <%= render 'comments/listing_comment' %>
 <%= render 'comments/form_comment' %>

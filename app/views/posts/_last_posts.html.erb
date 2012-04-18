@@ -1,4 +1,5 @@
-<div class="last-posts">
+<div class="last">
+  <p>Latest Posts</p>
   <ul>
     <% Post.order("id desc").limit(5).each do |post| %> 
     <li>

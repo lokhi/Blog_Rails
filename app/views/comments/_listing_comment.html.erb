@@ -1,9 +1,11 @@
-<ul>
-<% @post.comments.all.each do |comment| %> 
-  <li id="comment_<%= comment.id %>">
-    <p><%= comment.name %></p>
-    <p><%= comment.content %></p>
-    <p><%= link_to 'Delete',delete_comment_path(@post.id,comment.id), method: :delete %> </p>
-  </li>
-<% end %>
-</ul>
+<div class="listing-comments">
+  <ul>
+  <% @post.comments.all.each do |comment| %> 
+    <li id="comment_<%= comment.id %>">
+       <p class="comment-name"><%= comment.name %><span> <%= comment.created_at %></span></p>
+      <p class="comment-content" ><%= comment.content %></p>
+      <p><%= link_to 'Delete',delete_comment_path(@post.id,comment.id), method: :delete %> </p>
+    </li>
+  <% end %>
+  </ul>
+</div>
