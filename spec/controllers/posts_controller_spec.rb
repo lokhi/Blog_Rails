@@ -121,6 +121,24 @@ describe PostsController do
      delete 'delete',@params
      response.should redirect_to(posts_path)
    end
+ end
+ 
+  describe "POST '/posts/search'" do
+   before(:each) do
+      @p = double(Post)
+      Post.stub(:where){@p}
+      @params={:search=>"hello"}
+    end
+   it "should search post content the params" do
+     Post.should_receive(:where)
+     post 'search', @params
+   end
+
+   
+    it "should render the post page" do
+      post 'search',@params
+      response.should render_template('posts/index')
+   end
  
  end
  

@@ -61,4 +61,11 @@ describe PostsController do
       :action => "delete",
       :id => "2")
   end
+  
+  
+   it "should routes to search posts" do
+    { :post => "/posts/search" }.should route_to(
+      :controller => "posts",
+      :action => "search")
+  end
 end

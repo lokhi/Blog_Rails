@@ -37,6 +37,10 @@ class PostsController < ApplicationController
     redirect_to(posts_path)
   end
   
-
+  def search
+    val=params[:search]
+    @posts = Post.where("title like '%#{val}%' or body like '%#{val}%'")
+    render :index
+  end
   
 end
