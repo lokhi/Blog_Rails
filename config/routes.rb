@@ -1,6 +1,5 @@
 Blog::Application.routes.draw do
 
-
 match '/posts' => 'posts#index', :as => :posts, :via => :get
 match '/posts/new' => 'posts#new', :as => :new_post, :via => :get
 match '/posts' => 'posts#create', :via => :post
@@ -11,7 +10,8 @@ match '/posts/:id' => 'posts#delete', :as => :delete_post, :via => :delete
 match '/posts/:post_id/comments' => 'comments#create', :via => :post
 match '/posts/:post_id/comments/:id' => 'comments#delete', :as => :delete_comment, :via => :delete
 match '/posts/search' => 'posts#search', :via => :post
-
+match '/session/new' => 'session#new', :as => :new_session, :via => :get
+match '/session' => 'session#create', :via => :get
 
 
   # The priority is based upon order of creation:
