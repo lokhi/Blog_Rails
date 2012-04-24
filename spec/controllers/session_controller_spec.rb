@@ -49,4 +49,12 @@ LpOpGopkePjFT3HzglpX9QJBANm8xkkaGZQ76zbxIKMxWyyDY14wQ46RfFUtMD8i
       response.should redirect_to(posts_path)
     end
   end
+  
+  
+  describe "DELETE '/session'" do
+    it "should put the session[current_user] to nil" do
+      get 'delete'
+      session["current_user"].should be_nil
+    end
+  end
 end

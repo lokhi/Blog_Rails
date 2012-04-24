@@ -37,7 +37,7 @@
     <%= render 'comments/last_comments' %>
     <%= link_to image_tag("rss.png", :alt => "rss"), posts_path(:rss), :title => "RSS"  %>
     <% if current_user %>
-		  <%= current_user %>
+		  <%= current_user %> | <%= link_to "Disconnect", delete_session_path, method: :delete %> 
 		<% else %>
 		  <%= render 'session/new' %>
 	  <% end %>

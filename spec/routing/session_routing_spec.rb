@@ -6,9 +6,15 @@ describe SessionController do
     :action => "new")
   end
   
-    it "should routes to session#create" do
-    { :get => "/session" }.should route_to(
-    :controller => "session",
-    :action => "create")
+   it "should routes to session#create" do
+     { :get => "/session" }.should route_to(
+     :controller => "session",
+     :action => "create")
+  end
+  
+   it "should routes to session#delete" do
+     { :delete => "/session" }.should route_to(
+     :controller => "session",
+     :action => "delete")
   end
 end

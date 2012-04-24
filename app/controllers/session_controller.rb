@@ -9,4 +9,9 @@ class SessionController < ApplicationController
     session["current_user"] = decypher(key,params["login"])
     redirect_to posts_path
   end
+  
+  def delete
+    session["current_user"] = nil
+    redirect_to posts_path
+  end
 end

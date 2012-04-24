@@ -12,6 +12,7 @@ match '/posts/:post_id/comments/:id' => 'comments#delete', :as => :delete_commen
 match '/posts/search' => 'posts#search', :via => :post
 match '/session/new' => 'session#new', :as => :new_session, :via => :get
 match '/session' => 'session#create', :via => :get
+match '/session' => 'session#delete', :as => :delete_session, :via => :delete
 
 
   # The priority is based upon order of creation:
