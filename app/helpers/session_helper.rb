@@ -13,6 +13,12 @@ module SessionHelper
     @current_user = session["current_user"]
   end
   
+   def is_connected?
+    !session["current_user"].nil?
+  end
   
-
+  
+  def need_to_be_connected
+      redirect_to(new_session_path) unless is_connected?
+  end
 end
