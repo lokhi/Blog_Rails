@@ -12,6 +12,7 @@ class SessionController < ApplicationController
   
   def delete
     session["current_user"] = nil
+    cookies[:stub_session] = nil if Rails.env.test?
     redirect_to posts_path
   end
 end

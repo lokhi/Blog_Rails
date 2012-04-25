@@ -32,7 +32,7 @@ describe SessionHelper do
   describe "need_to_be_connected" do 
     context "the user is not connected" do
       before(:each) do
-        
+        session["current_user"]=nil
       end
       it "should redirect to new_session_path" do
         need_to_be_connected

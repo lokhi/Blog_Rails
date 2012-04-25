@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+   before_filter :need_to_be_connected, :only => :delete
   def create
     p = Post.find_by_id(params[:post_id])
     p.comments.create(params[:comment])

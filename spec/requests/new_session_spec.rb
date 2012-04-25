@@ -1,9 +1,11 @@
 require 'spec_helper'
 require 'capybara/mechanize'
-Capybara.default_driver = :mechanize
 
 
-describe " new session" do
+describe " new session" ,:driver => :mechanize do
+  before(:each) do
+    Capybara.default_host = "http://lokhi-labs:3000"
+  end
   describe "GET /session/new" do
     it "should have a link to log in" do
       visit posts_path

@@ -31,6 +31,7 @@ describe CommentsController do
   
  describe "DELETE '/posts/:post_id/comments/id'" do
    before(:each) do
+      session["current_user"]="toto"
       @p = double(Post)
       Post.stub(:find_by_id){@p}
       @c=double(Comment)

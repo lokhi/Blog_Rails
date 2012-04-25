@@ -4,6 +4,7 @@ describe 'delete_comment' do
   before(:each) do
     @post = Post.create(:title => "Post1", :body => "content test")
     @comment = @post.comments.create(:name => "louis" , :content => "my comment", :post_id => @post.id)
+    Capybara.current_session.driver.browser.current_session.instance_variable_get(:@rack_mock_session).cookie_jar[:stub_session]="toto"
   end
     
   it "should print a link to delete the comment on page of the post" do

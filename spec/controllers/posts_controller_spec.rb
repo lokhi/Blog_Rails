@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe PostsController do
+  before(:each) do
+    session["current_user"] = "toto"
+  end
+  
   describe "GET 'index'" do
     before(:each) do
       @posts = [stub_model(Post,:title => "1"), stub_model(Post, :title => "2")]

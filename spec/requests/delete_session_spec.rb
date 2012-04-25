@@ -1,21 +1,17 @@
 require 'spec_helper'
-require 'capybara/mechanize'
-Capybara.default_driver = :mechanize
 
 describe " destroy session" do
   describe "DELETE /session/delete" do
     before(:each) do
-      visit posts_path
-      click_link('Login')
-      fill_in('user[login]', :with => 'toto')
-      fill_in('user[password]', :with => 'test')
-      click_button('Sign in')
+       Capybara.current_session.driver.browser.current_session.instance_variable_get(:@rack_mock_session).cookie_jar[:stub_session]="toto"
     end
     it "should print a link to delete the post on the posts page" do
-      page.should have_link('Disconnect' , :href => delete_session_path)
+      visit posts_path
+      page.should have_link('Disconnect' , :href => delete_session_path) 
     end
     
     it "should destroy the session" do
+      visit posts_path
       click_link "Disconnect"
       page.should_not have_content("toto")
     end

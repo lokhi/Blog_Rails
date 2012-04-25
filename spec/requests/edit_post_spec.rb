@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'edit_post' do
   before(:each) do
     @post = Post.create(:title => "Post1", :body => "content test")
+    Capybara.current_session.driver.browser.current_session.instance_variable_get(:@rack_mock_session).cookie_jar[:stub_session]="toto"
   end
     
   it "should print a link to edit the post on the posts page" do

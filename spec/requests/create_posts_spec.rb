@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "CreatePosts" do
+  before(:each) do
+       Capybara.current_session.driver.browser.current_session.instance_variable_get(:@rack_mock_session).cookie_jar[:stub_session]="toto"
+    end
   describe "GET /create_posts" do
     it "should have a link to create a post" do
       visit posts_path

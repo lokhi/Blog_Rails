@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_filter :need_to_be_connected, :except => [:index, :show, :search]
   def index
     @posts = Post.all  
    # respond_to do |format|
