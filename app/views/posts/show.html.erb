@@ -3,7 +3,7 @@
     <h1 class="post-title"><%= @post.title %></h1>
     <p class="post-date"><%= @post.created_at %></p>
   </div>
-  <div class="post-img-comment"><%= @post.comments.count() %></div>
+  <div class="post-img-comment"><%= link_to @post.comments.count(), show_post_path(@post.id)+"#comments" %></div>
   <p class="end"></p>
   <p class="post-body">
     <%= @post.body %>

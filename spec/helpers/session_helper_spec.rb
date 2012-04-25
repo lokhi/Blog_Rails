@@ -29,7 +29,7 @@ describe SessionHelper do
   end
   
   
-  describe "need_to_be_connected" do 
+  describe "need_to_be_connected" do    
     context "the user is not connected" do
       before(:each) do
         session["current_user"]=nil

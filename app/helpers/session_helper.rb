@@ -19,6 +19,7 @@ module SessionHelper
   
   
   def need_to_be_connected
+      session["source"]=request.fullpath
       redirect_to(new_session_path) unless is_connected?
   end
 end

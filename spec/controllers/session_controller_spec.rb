@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe SessionController do
   describe "GET '/session/new'" do
+    it "should put the src param into redirect to session" do
+      get 'new', {"src"=>"/posts/4"}
+      session["source"].should == "/posts/4"
+    end
+    
     it "should redirect to the Sauth" do
       get 'new'
       response.should redirect_to("http://sauth:4567/lokhilabs/session/new?origin=/session&amp;secret=blog")
@@ -44,9 +49,24 @@ LpOpGopkePjFT3HzglpX9QJBANm8xkkaGZQ76zbxIKMxWyyDY14wQ46RfFUtMD8i
       session["current_user"].should == "toto"
     end
     
-    it "should redirect to the posts page" do
-      get 'create',@params
-      response.should redirect_to(posts_path)
+    context "session source is not nil" do
+      before(:each) do
+        session["source"]="/posts/4"
+      end
+      it "should redirect to the source" do
+        get 'create',@params
+        response.should redirect_to(show_post_path(4))
+      end
+    end
+    
+    context "session source is nil" do
+      before(:each) do
+        session["source"]=nil
+      end
+      it "should redirect to the root" do
+        get 'create',@params
+        response.should redirect_to(root_path)
+      end
     end
   end
   
