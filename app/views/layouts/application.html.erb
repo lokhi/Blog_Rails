@@ -32,15 +32,11 @@
       </div>
       <p class="end"></p>
     </div>
-      
+    <%= render 'session/session' %>
     <%= render 'posts/last_posts' %>
     <%= render 'comments/last_comments' %>
     <%= link_to image_tag("rss.png", :alt => "rss"), posts_path(:rss), :title => "RSS"  %>
-    <% if current_user %>
-		  <%= current_user %> | <%= link_to "Disconnect", delete_session_path, method: :delete %> 
-		<% else %>
-		  <%= render 'session/new' %>
-	  <% end %>
+    
 
 
     </div>

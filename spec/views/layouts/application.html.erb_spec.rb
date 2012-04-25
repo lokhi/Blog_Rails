@@ -10,9 +10,8 @@ describe "layouts/application" do
    view.should render_template(:partial => "_last_comments")
   end
   
-  it "display the new session view" do
+  it "should display the  session view" do
     render
-    view.should render_template(:partial => "_new")
+    view.should render_template(:partial => "_session")
   end
-  
 end

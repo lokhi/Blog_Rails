@@ -189,6 +189,31 @@ div.pres-content{
   text-align:justify;
 }
 
+div.session{
+  font-family:Arial;
+  margin-bottom:20px;
+}
+
+p.titreSession{
+  font-size:22px;
+  background:#1E65A6;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom:1px solid #cdcdcd;
+  padding:5px 10px 5px 10px;
+  color:#FFFFFF;
+}
+p.contentSession{
+  padding:10px;
+  font-size:16px;
+  background:#FFFFFF;
+  border-radius: 0px 0px 10px 10px;
+  border:1px solid #CDCDCD;
+  
+}
+div.session a{
+  text-decoration:underline;
+  color:#1E65A6;
+}
 div.last{
   font-family:Arial;
   margin-bottom:20px;
