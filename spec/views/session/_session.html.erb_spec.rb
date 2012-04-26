@@ -4,7 +4,7 @@ describe "session/session" do
   context "user is not connected" do
     it "should display the link to the Sauth" do
        render :partial => "session/session"
-      rendered.should have_selector("a[href='/session/new']")
+      rendered.should have_selector("a[href='/session/new?src=']")
     end
   end
   context "user is connected" do

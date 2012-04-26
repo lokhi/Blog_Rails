@@ -7,12 +7,12 @@ describe 'delete_post' do
   end
     
   it "should print a link to delete the post on the posts page" do
-    visit posts_path(@post)
+    visit posts_path
     page.should have_link('Delete' , :href => delete_post_path(@post))
   end
   
   it "should not print the post" do
-    visit posts_path(@post)
+    visit posts_path
     click_link "Delete"
     current_path.should == posts_path
     page.should_not have_content(@post.title)

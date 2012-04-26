@@ -9,7 +9,7 @@ describe " new session" ,:driver => :mechanize do
   describe "GET /session/new" do
     it "should have a link to log in" do
       visit posts_path
-      page.should have_link('Login' , :href => new_session_path)
+      page.should have_link('Login' , :href => new_session_path+"?src=/posts")
     end
     
     it "should redirect to the Sauth" do
