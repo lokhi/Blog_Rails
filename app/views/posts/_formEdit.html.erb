@@ -1,0 +1,13 @@
+<div class="form">
+  <p>Edit the post</p>
+  <%= form_tag("/posts/#{@post.id}",:method => "put",:remote =>"true") do %>
+  <%= label(:post,:title, "title :") %>
+  <%= text_field(:post, :title, :size => 55,:class => "form-field") %>
+  <br /><br />
+  <%= label(:post,:body, "content :", :id => "labelarea") %>
+  <%= text_area(:post, :body,:size => "55x10", :class => "form-field") %>
+  <br />
+  <p class="end"></p>
+  <%= submit_tag("Update the Post",:class => "form-submit") %>
+  <% end %>
+</div>

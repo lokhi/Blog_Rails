@@ -1,0 +1,11 @@
+<div class="session">
+  <p class="titreSession">Session</p>
+  <p class="contentSession">
+    <% if current_user %>
+        You are <%= current_user %> | <%= link_to "Disconnect", delete_session_path, method: :delete %> 
+	    <% else %>
+	      <%= link_to 'Login', new_session_path+"?src="+request.fullpath %>
+    <% end %>
+  </p>
+</div>
+

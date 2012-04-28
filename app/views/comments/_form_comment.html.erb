@@ -1,6 +1,6 @@
 <div class="form">
 <p>Add your comment </p>
-<%= form_tag("/posts/#{@post.id}/comments", :method => "post") do %>
+<%= form_tag("/posts/#{@post.id}/comments", :method => "post",:remote => true) do %>
 <%= label(:comment,:name, "name :") %>
 <%= text_field(:comment, :name, :size => 55,:class => "form-field") %>
 <br /><br />

@@ -4,7 +4,7 @@
     <li id="comment_<%= comment.id %>">
        <p class="comment-name"><%= comment.name %><span> <%= comment.created_at %></span></p>
       <p class="comment-content" ><%= comment.content %></p>
-      <p><%= link_to 'Delete',delete_comment_path(@post.id,comment.id), method: :delete %> </p>
+      <p><%= link_to 'Delete',delete_comment_path(@post.id,comment.id), method: :delete, :remote => true %> </p>
     </li>
   <% end %>
   </ul>

@@ -1,0 +1,2 @@
+$('li#comment_<%= @comment.id %>').remove();
+$('div.last ul li a[href="<%= "#{show_post_path(@comment.post_id)}#comment_#{@comment.id}" %>"]').parent().remove();

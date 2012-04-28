@@ -1,0 +1,2 @@
+$('div.post-read a[href="<%= show_post_path(@post.id) %>"]').parent().parent().replaceWith("<%= escape_javascript(render 'formEdit') %>")
+

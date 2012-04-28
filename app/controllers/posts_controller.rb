@@ -2,10 +2,11 @@ class PostsController < ApplicationController
   before_filter :need_to_be_connected, :except => [:index, :show, :search]
   def index
     @posts = Post.all  
-   # respond_to do |format|
-    #  format.html
-     # format.rss { render :rss => @posts, :layout => false}
-    #end
+    respond_to do |format|
+      format.html
+      format.rss { render :layout => false}
+      format.json { render json: @posts }
+    end
   end
   
   def new
@@ -13,19 +14,34 @@ class PostsController < ApplicationController
   end
  
   def create
-    post = Post.new(params[:post])
-    post.save
-    redirect_to(posts_path)
+    @post = Post.new(params[:post])
+    @post.save
+    #redirect_to()
+    respond_to do |format|
+        format.html { redirect_to posts_path}
+        format.json { render json: @post}
+        format.js
+    end
   end
   
   def edit
     @post = Post.find_by_id(params[:id])
+     respond_to do |format|
+        format.html
+        format.json { render json: @post}
+        format.js
+    end
   end
   
   def update
-    post = Post.find_by_id(params[:id])
-    post.update_attributes(params[:post])
-    redirect_to(posts_path)
+    @post = Post.find_by_id(params[:id])
+    @post.update_attributes(params[:post])
+    #redirect_to(posts_path)
+     respond_to do |format|
+        format.html { redirect_to posts_path}
+        format.json { render json: @post}
+        format.js
+    end
   end
   
   def show
@@ -33,9 +49,14 @@ class PostsController < ApplicationController
   end
   
   def delete
-    post = Post.find_by_id(params[:id])
-    post.destroy
-    redirect_to(posts_path)
+    @post = Post.find_by_id(params[:id])
+    @post.destroy
+    #redirect_to(posts_path)
+    respond_to do |format|
+        format.html { redirect_to posts_path}
+        format.json { render json: @post}
+        format.js
+    end
   end
   
   def search
