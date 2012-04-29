@@ -5,9 +5,9 @@
   </div>
   <div class="post-img-comment"><%= link_to @post.comments.count(), show_post_path(@post.id)+"#comments" %></div>
   <p class="end"></p>
-  <p class="post-body">
-    <%= @post.body %>
-  </p>
+  <div class="post-body">
+    <%= @post.printBody %>
+  </div>
 </div>
 <%= render 'comments/listing_comment' %>
 <%= render 'comments/form_comment' %>
