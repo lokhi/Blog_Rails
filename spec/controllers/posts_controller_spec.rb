@@ -8,10 +8,10 @@ describe PostsController do
   describe "GET 'index'" do
     before(:each) do
       @posts = [stub_model(Post,:title => "1"), stub_model(Post, :title => "2")]
-      Post.stub(:all){ @posts }
+      Post.stub(:paginate){ @posts }
     end
     it "assigns a list of posts" do
-      Post.should_receive(:all).and_return(@posts)
+      Post.should_receive(:paginate).and_return(@posts)
       get 'index'
       assigns(:posts).should eq @posts
       response.should be_success

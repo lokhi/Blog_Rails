@@ -29,6 +29,9 @@
   </li>
   <% end %>
   </ul>
+  <%  if !(request.fullpath == "/posts/search") %>
+  <%= will_paginate @posts %>
+  <% end %>
   <p class="newpostlink"><%= link_to 'New Post', new_post_path,:remote => true %></p>
 </div>
 

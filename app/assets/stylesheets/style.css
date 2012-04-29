@@ -153,6 +153,31 @@ div.post-read a{
   text-decoration:underline;
 }
 
+
+div.pagination{
+  margin:30px;
+  text-align:center;
+}
+
+div.pagination span{
+  display:none;
+}
+
+div.pagination a, div.pagination .current {
+	padding: 6px 8px;
+	margin-left: 3px;
+	color: #FFFFFF;
+	text-decoration: none;
+	border-radius: 5px;
+ background:#1E65A6;
+}
+div.pagination a:hover, div.pagination .current {
+	background: url(black-bg.gif);
+}
+
+
+
+
 p.newpostlink a{
   color:#1E65A6;
   text-decoration:underline;

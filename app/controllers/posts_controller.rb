@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_filter :need_to_be_connected, :except => [:index, :show, :search]
   def index
-    @posts = Post.all  
+    #@posts = Post.all  
+    @posts = Post.paginate(:page => params[:page],:per_page=> 3)
     respond_to do |format|
       format.html
       format.rss { render :layout => false}
