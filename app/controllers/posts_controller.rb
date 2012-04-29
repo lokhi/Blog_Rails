@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.save
+    flash[:msg] = "Post was created with success :) !"
     #redirect_to()
     respond_to do |format|
         format.html { redirect_to posts_path}
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by_id(params[:id])
     @post.update_attributes(params[:post])
+    flash[:msg] = "Post was updated with success :) !"
     #redirect_to(posts_path)
      respond_to do |format|
         format.html { redirect_to posts_path}
@@ -62,6 +64,7 @@ class PostsController < ApplicationController
   def search
     val=params[:search]
     @posts = Post.where("title like '%#{val}%' or body like '%#{val}%'")
+    flash[:search] = "No posts found. Try a different search ?" if @posts.empty?
     render :index
   end
   

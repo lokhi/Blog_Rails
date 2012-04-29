@@ -50,6 +50,11 @@ describe PostsController do
       post 'create',@params
     end
     
+    it "should create a flash message" do
+     post 'create',@params
+     flash[:msg].should == "Post was created with success :) !"
+    end
+    
     it "should redirect to the posts page" do
        post 'create',@params
        response.should redirect_to(posts_path)
@@ -79,6 +84,11 @@ describe PostsController do
     it "should update the post" do
       @p.should_receive(:update_attributes)
       put 'update', @params
+    end
+    
+    it "should create a flash message" do
+     put 'update',@params
+     flash[:msg].should == "Post was updated with success :) !"
     end
     it "should redirect to the posts page" do
       put 'update', @params
@@ -132,16 +142,26 @@ describe PostsController do
       @p = double(Post)
       Post.stub(:where){@p}
       @params={:search=>"hello"}
+      @p.stub(:empty?){false}
     end
    it "should search post content the params" do
      Post.should_receive(:where)
      post 'search', @params
    end
-
    
     it "should render the post page" do
       post 'search',@params
       response.should render_template('posts/index')
+   end
+   
+   context "the search return nothing" do
+     before(:each) do 
+      @p.stub(:empty?){true}
+     end
+     it "should create a flash message with the message" do
+      post 'search', @params
+      flash[:search].should == "No posts found. Try a different search ?"
+     end
    end
  
  end

@@ -1,4 +1,16 @@
 <div class="list-posts">
+  <% if flash[:msg] %>
+    <div class="flash-msg">
+      <%= flash[:msg] %>
+    </div>
+  <% end %>
+  <% if flash[:search] %>
+    <div class="search-msg">
+      <p>
+        <%= flash[:search] %>
+     </p>
+    </div>
+  <% end %>
   <ul>
   <% @posts.each do |post| %> 
   <li class="post">

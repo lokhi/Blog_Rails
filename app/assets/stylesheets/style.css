@@ -72,6 +72,23 @@ div.content-left{
   margin-right:30px;
 }
 
+div.flash-msg{
+  font-family:Arial;
+  color:#FFFFFF;
+  font-size:18px;
+  background:url(ok.png) no-repeat center left,#7AC25A ;
+  border:1px solid #35A62F;
+  border-radius: 5px;
+  padding:15px 10px 15px 50px;
+  margin-bottom:50px;
+}
+
+div.search-msg{
+  font-family:Arial;
+  color:#000000;
+  font-size:20px;
+}
+
 div.list-posts{
   margin:30px;
   font-family:Arial;
@@ -153,7 +170,7 @@ input.searchfield{
 }
 
 input.searchfield:focus{
-  border:none;
+  outline:none;
 }
 
 input.loupe{
@@ -303,6 +320,10 @@ div.form label{
   color:#FFFFFF;
   padding:5px;
   float:left;
+}
+
+.form-field:focus{
+  outline:none;
 }
 
 .form-submit{
