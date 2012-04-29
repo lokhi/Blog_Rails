@@ -100,6 +100,8 @@ div.list-posts li{
   margin-bottom:50px;
 }
 
+
+
 div.post{
   font-family:Arial;
   color:#000000;
@@ -111,6 +113,10 @@ div.post-title{
 h1.post-title{
   font-size:24px;  
 }
+span.adminlink a{
+ color:#1E65A6;
+ text-decoration:underline;
+}
 div.post-img-comment{
   background:url(bulle-comment.png) no-repeat;
   text-align:center;
@@ -121,8 +127,8 @@ div.post-img-comment{
   float:right;
 }
 div.post-img-comment a{
-  text-decoration:none;
   color:#FFFFFF;
+  text-decoration:none;
 }
 
 p.post-date{
@@ -140,6 +146,16 @@ div.post-read{
   float:right;
   margin-top:20px;
   margin-right:20px;
+}
+
+div.post-read a{
+  color:#1E65A6;
+  text-decoration:underline;
+}
+
+p.newpostlink a{
+  color:#1E65A6;
+  text-decoration:underline;
 }
 
 div.content-right{
@@ -354,8 +370,16 @@ div.form label{
 
 
 
+div.backlink{
+  font-family:Arial;
+  font-size:14px;
+  margin:30px;
+}
 
-
+div.backlink a{
+  color:#1E65A6;
+  text-decoration:underline;
+}
 
 /* FIN CONTENU*/
 

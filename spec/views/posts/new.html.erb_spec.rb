@@ -8,4 +8,9 @@ describe "posts/new" do
     rendered.should have_selector("textarea[name='post[body]']")
     rendered.should have_selector("input[type='submit']")
   end
+  
+  it "should render a link to return to home page" do
+    render
+    rendered.should have_link('Back to home', :href => posts_path)
+  end
 end
