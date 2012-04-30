@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def index
     #@posts = Post.all  
     @posts = Post.paginate(:page => params[:page],:per_page=> 3)
+    @posts_rss=Post.all
     respond_to do |format|
       format.html
       format.rss { render :layout => false}
