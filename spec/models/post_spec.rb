@@ -46,4 +46,11 @@ describe Post do
       end
     end 
   end
+  
+  describe "bodyWithoutBbcode" do
+    it "should return the body without bbcode tags" do
+      @p.bodyWithoutBbcode.should == "une chaine avec un mot en gras"
+    end
+  
+  end
 end

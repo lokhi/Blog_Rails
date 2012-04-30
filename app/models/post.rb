@@ -15,4 +15,8 @@ class Post < ActiveRecord::Base
       text.bbcode_to_html_with_formatting.html_safe
     end
   end
+  
+  def bodyWithoutBbcode
+    body.gsub(/\[[a-zA-z09=_\/:,\.-]*\]/,"")
+  end
 end
