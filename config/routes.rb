@@ -13,6 +13,8 @@ match '/posts/search' => 'posts#search', :via => :post
 match '/session/new' => 'session#new', :as => :new_session, :via => :get
 match '/session' => 'session#create', :via => :get
 match '/session' => 'session#delete', :as => :delete_session, :via => :delete
+match '/contact/create' => 'contact#create', :via => :post
+
 
 
   # The priority is based upon order of creation:

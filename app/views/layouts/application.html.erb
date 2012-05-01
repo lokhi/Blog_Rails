@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body id="top">
    <div class="header">
     <div class="header-box">
       <div class="logo">
@@ -29,7 +29,7 @@
       <div class="pres-content">
         <p>Bienvenue sur mon blog !</p>
         <br />
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin ipsum nisi, elementum interdum sodales et, sagittis at metus. Fusce vel erat non nisi molestie aliquet.</p>
+        <p>Je suis Lokhi une jeu apprenti ingénieur en informatique et réseaux. Je vis entre la Côte d'Azur et Toulouse, je parle dans ce blog de divers sujets, informatique, sécurité, musique, mode, bref tout ce qui me passione :)</p>
       </div>
       <p class="end"></p>
     </div>
@@ -37,7 +37,6 @@
     <%= render 'posts/last_posts' %>
     <%= render 'comments/last_comments' %>
     <%= link_to image_tag("rss.png", :alt => "rss"), posts_path(:rss), :title => "RSS"  %>
-    
 
 
     </div>
@@ -45,12 +44,18 @@
   <p class="end"></p>
   <div class="footer">
     <div class="footer-box">
-      <div class="footer-toy">
-        &nbsp;
+      <div class="footerTotop">
+         <%= link_to image_tag("top.png", :alt => "Go the top"),"#top", :title => "Top"  %>
       </div>
-      <div class="footer-content">
-        Texte du footer
+      <div class="footercontent">
+        Bah ici je vais mettre du texte mais comme je sais pas encore quoi mettre et bah je vais laisse ça comme ceci et nous verrons bien :)<br /><br />
+        <%= link_to image_tag("logo.png", :alt => "Lokhi Labs"), posts_path, :title => "homepage" %>
       </div>
+      <div class="footer-bulle">
+      <div class="bullecontent">
+        <%= render 'contact/contact' %>
+      </div>
+    </div>
     </div>
   </div>
   </body>

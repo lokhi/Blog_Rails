@@ -14,4 +14,9 @@ describe "layouts/application" do
     render
     view.should render_template(:partial => "_session")
   end
+  
+  it "should display the contact form" do
+    render
+    view.should render_template(:partial => "_contact")
+  end
 end
