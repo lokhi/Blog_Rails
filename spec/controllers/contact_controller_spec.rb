@@ -8,7 +8,7 @@ describe ContactController do
 
     
     it "should use the methode send of mailer Contact" do
-      ContactMailer.should_receive(:contact).with(@p[:contact])
+      ContactMailer.should_receive(:contact)
       post 'create',@p
     end
 
@@ -16,6 +16,7 @@ describe ContactController do
       post 'create',@p
       flash[:msg].should == "Thanks i will read it as soon as possible :)"
     end
+    
     it "should redirect to the root" do
       post 'create',@p
       response.should redirect_to("/")
