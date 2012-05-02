@@ -1,10 +1,12 @@
 require 'spec_helper'
 describe "posts/index" do
   before(:each) do
-  
+    @tag=stub_model(Tag, :name => "tag1");
+    @post= stub_model(Post, :title => "sujet 1",:body => "content1");
+    @post.stub(:getTag){@tag.name}
     post= WillPaginate::Collection.create(1,3,4) do |page|
       page.replace([
-           stub_model(Post, :title => "sujet 1",:body => "content1"),
+           @post,
            stub_model(Post, :title => "sujet 2",:body => "content2"),
            stub_model(Post, :title => "sujet 3",:body => "content3"),
            stub_model(Post, :title => "sujet 4",:body => "content4")
@@ -27,5 +29,10 @@ describe "posts/index" do
   it "should display the pagination link" do
     render
     rendered.should =~ /pagination/
+  end
+  
+  it "should display tags" do
+    render
+    rendered.should =~ /tag1/
   end
 end

@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.save
+    @post.addTag(params[:tags][:name])
     flash[:msg] = "Post was created with success :) !"
     #redirect_to()
     respond_to do |format|
@@ -38,6 +39,8 @@ class PostsController < ApplicationController
   def update
     @post = Post.find_by_id(params[:id])
     @post.update_attributes(params[:post])
+    @post.tags.clear
+    @post.addTag(params[:tags][:name])
     flash[:msg] = "Post was updated with success :) !"
     #redirect_to(posts_path)
      respond_to do |format|
