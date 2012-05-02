@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'edit_post' do
   before(:each) do
     @post = Post.create(:title => "Post1", :body => "content test")
+    @post.addTag("tag1,tag2,tag3")
     Capybara.current_session.driver.browser.current_session.instance_variable_get(:@rack_mock_session).cookie_jar[:stub_session]="toto"
   end
     
@@ -20,8 +21,10 @@ describe 'edit_post' do
     visit edit_post_path(@post)
     fill_in('post[title]', :with => 'New title')
     fill_in('post[body]', :with => 'content test ok')
+    fill_in('tags', :with => 'tag4,tag5,tag6')
     click_button('Update')
     current_path.should == posts_path
     page.should have_content('New title')
+    page.should have_content('tag4, tag5, tag6')
   end
 end

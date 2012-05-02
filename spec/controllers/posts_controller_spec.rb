@@ -79,8 +79,12 @@ describe PostsController do
     before(:each) do
       @p = double(Post)
       Post.stub(:find_by_id){@p}
+      @tag=double(Tag)
       @p.stub(:update_attributes)
-      @params={:id=>1,:post=>{:title=>"Newtitle",:body=>"Newcontent"}}
+      @p.stub(:addTag)
+      @p.stub(:tags){@tag}
+      @tag.stub(:clear)
+      @params={:id=>1,:post=>{:title=>"Newtitle",:body=>"Newcontent"},:tags=>{:name=>"tag"}}
     end
     it "should retrieve the post" do
       Post.should_receive(:find_by_id)
@@ -90,6 +94,16 @@ describe PostsController do
     it "should update the post" do
       @p.should_receive(:update_attributes)
       put 'update', @params
+    end
+    
+    it "should clear tags" do
+      @tag.should_receive(:clear)
+      post 'update',@params
+    end
+    
+    it "should add the new tag" do
+      @p.should_receive(:addTag)
+      post 'update',@params
     end
     
     it "should create a flash message" do
