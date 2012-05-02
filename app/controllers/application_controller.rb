@@ -1,6 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  include SessionHelper
+  #include SessionHelper
+   def current_user
+    @current_user = session["current_user"]
+  end
+  
+   def is_connected?
+    !session["current_user"].nil?
+  end
+  
+  
+  def need_to_be_connected
+      session["source"]=request.fullpath
+      redirect_to(new_session_path) unless is_connected?
+  end
+  
+  
   
   private
     if Rails.env.test?
