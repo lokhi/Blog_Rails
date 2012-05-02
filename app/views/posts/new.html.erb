@@ -6,8 +6,10 @@
 <br /><br />
 <%= label(:post,:body, "content :", :id => "labelarea") %>
 <%= text_area(:post, :body,:size => "55x10", :class => "form-field") %>
+<p class="end"></p><br />
+<%= label(:tags,:name, "tags :") %>
+<%= text_field(:tags,:name, :size => 55,:class => "form-field") %>
 <br />
-<p class="end"></p>
 <%= submit_tag("New Post",:class => "form-submit") %>
 <% end %>
 </div>

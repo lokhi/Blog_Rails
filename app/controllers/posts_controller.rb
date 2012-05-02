@@ -17,6 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.save
+    @post.addTag(params[:tags][:name])
     flash[:msg] = "Post was created with success :) !"
     #redirect_to()
     respond_to do |format|

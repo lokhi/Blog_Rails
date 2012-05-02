@@ -51,6 +51,48 @@ describe Post do
     it "should return the body without bbcode tags" do
       @p.bodyWithoutBbcode.should == "une chaine avec un mot en gras"
     end
+  end
   
+  describe "addTag" do
+    before(:each) do
+      @params={:tags =>"tag1,tag2,tag3"}
+      @tags=@params[:tags]
+      @tab=["tag1","tag2","tag3"]
+      @tags.stub(:split){@tab}
+      Tag.stub(:find_or_create_by_name){Tag.new}
+    end
+    it "should split the tags" do
+      @tags.should_receive(:split)
+      @p.addTag(@tags)
+    end
+    
+    it "should enter the tag into database" do
+      Tag.should_receive(:find_or_create_by_name)
+      @p.addTag(@tags)
+    end
+    
+    it "should link tags to the Post" do
+      @p.tags.should_receive(:<<)
+      @p.addTag(@tags)
+    end
+  end
+  
+  
+   describe "getTag" do
+    before(:each) do
+      @tag=[double(Tag)]
+      @p.stub(:tags){@tags}
+      @t=["tag1"]
+      @tags.stub(:map){@t}
+    end
+    it "should map the tags" do
+      @p.tags.should_receive(:map)
+      @p.getTag
+    end
+    
+    it "shoud join it with , " do
+      @t.should_receive(:join).with(", ")
+      @p.getTag
+    end
   end
 end

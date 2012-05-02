@@ -37,7 +37,8 @@ describe PostsController do
       @p = double(Post)
       Post.stub(:new){@p}
       @p.stub(:save)
-      @params={:post=>{:title=>"title",:body=>"content"}}
+      @p.stub(:addTag)
+      @params={:post=>{:title=>"title",:body=>"content"},:tags=>{:name=>"tag"}}
     end
     
     it "should create a new post" do 
@@ -47,6 +48,11 @@ describe PostsController do
     
     it "should save the post" do
       @p.should_receive(:save)
+      post 'create',@params
+    end
+    
+    it "should add tags to the post" do
+      @p.should_receive(:addTag)
       post 'create',@params
     end
     

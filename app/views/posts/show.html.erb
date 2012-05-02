@@ -1,6 +1,7 @@
 <div class="post">
   <div class="post-title">
     <h1 class="post-title"><%= @post.title %></h1>
+    <h3 class="post-tag"><%= @post.getTag %></h3>
     <p class="post-date"><%= @post.created_at %></p>
   </div>
   <div class="post-img-comment"><%= link_to @post.comments.count(), show_post_path(@post.id)+"#comments" %></div>

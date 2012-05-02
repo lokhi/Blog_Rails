@@ -21,6 +21,7 @@ describe "CreatePosts" do
       visit new_post_path
       fill_in('post[title]', :with => 'title1')
       fill_in('post[body]', :with => 'thecontent')
+      fill_in('tags', :with => 'tag1,tag2,tag3')
       click_button('New Post')
       current_path.should == posts_path
       page.should have_content('title1')
