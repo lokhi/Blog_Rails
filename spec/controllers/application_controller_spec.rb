@@ -6,7 +6,7 @@ describe ApplicationController do
      session["current_user"]="toto"
     end
     it "should return the value of session['current_user']" do
-      current_user.should == "toto"
+      controller.current_user.should == "toto"
     end
   end
   
@@ -17,13 +17,13 @@ describe ApplicationController do
         session["current_user"]="toto"
       end
       it "should return true" do
-        is_connected?.should be_true
+        controller.is_connected?.should be_true
       end
     end
     
     context "the user is not connected" do 
       it "should return false" do
-        is_connected?.should be_false
+        controller.is_connected?.should be_false
       end
     end
   end
@@ -35,8 +35,8 @@ describe ApplicationController do
         session["current_user"]=nil
       end
       it "should redirect to new_session_path" do
-        need_to_be_connected
-        response.status.should == 302
+        controller.should_receive(:redirect_to)
+        controller.need_to_be_connected
       end
     end
     
@@ -45,7 +45,7 @@ describe ApplicationController do
         session["current_user"]="toto"
       end
       it "should to nothing" do
-        need_to_be_connected
+        controller.need_to_be_connected
         response.status.should == 200
       end
     end

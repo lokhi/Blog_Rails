@@ -1,5 +1,8 @@
 require 'spec_helper'
 describe "layouts/application" do
+ before(:each) do
+    view.stub(:current_user){"toto"}
+  end
   it "should display latest posts" do
    render
    view.should render_template(:partial => "_last_posts")

@@ -1,6 +1,7 @@
 require 'spec_helper'
 describe "posts/index" do
   before(:each) do
+    view.stub(:current_user){"toto"}
     @tag=stub_model(Tag, :name => "tag1");
     @post= stub_model(Post, :title => "sujet 1",:body => "content1");
     @post.stub(:getTag){@tag.name}
