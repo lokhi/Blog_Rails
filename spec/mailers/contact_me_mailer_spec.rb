@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe ContactMailer do
+describe ContactMeMailer do
   describe "contact" do
     before(:each) do
-      @mail=ContactMailer.contact("toto","toto@toto.com","The content").deliver
+      @mail=ContactMeMailer.contact("toto","toto@toto.com","The content").deliver
     end
     
     it "should have perello.louis@gmail in to field" do

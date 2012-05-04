@@ -1,5 +1,4 @@
-class ContactMailer < ActionMailer::Base
-  
+class ContactMeMailer < ActionMailer::Base
     default :from => "testblograils@gmail.com"
     default :to => "testblograils@gmail.com"
     
