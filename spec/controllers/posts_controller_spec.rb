@@ -9,6 +9,7 @@ describe PostsController do
     before(:each) do
       @posts = [stub_model(Post,:title => "1"), stub_model(Post, :title => "2")]
       Post.stub(:paginate){ @posts }
+      @posts.stub(:order){@posts}
     end
     it "assigns a list of posts" do
       Post.should_receive(:paginate).and_return(@posts)
