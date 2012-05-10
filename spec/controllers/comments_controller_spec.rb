@@ -7,7 +7,8 @@ describe CommentsController do
       Post.stub(:find_by_id){@p}
       @c=double(Comment)
       @p.stub(:comments){@c}
-      @c.stub(:create)
+      @c.stub(:create){@c}
+      @c.stub(:valid?){true}
       @params={:post_id=> @p.id,:comment=>{:name=>"louis",:content=>"mycomment"}}
      
     end
@@ -21,10 +22,25 @@ describe CommentsController do
       @c.should_receive(:create)
       post 'create',@params
     end
+    it "should check if the comment is valid" do
+      @c.should_receive(:valid?)
+      post 'create',@params
+    end
     
-    it "should redirect to the page of the post" do
-       post 'create',@params
-       response.should redirect_to(show_post_path(@p))
+    context "the comment is valid" do
+      it "should redirect to the page of the post" do
+         post 'create',@params
+         response.should redirect_to(show_post_path(@p))
+      end
+    end
+    context "the comment is not valid" do
+      before(:each) do
+        @c.stub(:valid?){false}
+      end
+      it "should print to the page of the post with the error message" do
+         post 'create',@params
+         flash[:error].should == "Comment Fields must not be empty !"
+      end
     end
   end
   

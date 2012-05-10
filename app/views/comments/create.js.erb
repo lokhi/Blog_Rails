@@ -1,3 +1,4 @@
+$("div.flash-error").remove();
 $("body .listing-comments ul").append('<li id="comment_<%= @comment.id %>" ><p class="comment-name"><%= escape_javascript(@comment.name) %><span> <%= @comment.created_at %></span></p> <p class="comment-content" ><%= escape_javascript(@comment.content) %></p><p><%= escape_javascript(link_to 'Delete',delete_comment_path(@comment.post_id,@comment.id), method: :delete, :remote => true) %></p></li>');
 $('div.last p:contains("Latest Comments")').parent().children('ul').prepend('<li><%= escape_javascript(link_to @comment.content[0..50]+"...",show_post_path(@comment.post_id)+"#comment_#{@comment.id}") %></li>');
 $("div.form form").children(':input').not(':submit').val('');

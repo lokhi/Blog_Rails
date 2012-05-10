@@ -1,4 +1,9 @@
 <div class="form">
+ <% if flash[:error] %>
+    <div class="flash-error">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
 <p>Add your comment </p>
 <%= form_tag("/posts/#{@post.id}/comments", :method => "post",:remote => true) do %>
 <%= label(:comment,:name, "name :") %>

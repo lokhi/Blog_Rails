@@ -1,0 +1,2 @@
+$("div.flash-error").remove();
+$("div.form").prepend('<% if flash[:error] %><div class="flash-error"><%= flash[:error] %></div><% end %>');

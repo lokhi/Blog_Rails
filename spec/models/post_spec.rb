@@ -19,6 +19,9 @@ describe Post do
     end
   end
   describe "PrintDescription" do
+    before(:each) do
+      @p.body.stub(:length){3}
+    end
     it "should check if the length of body is lower than 300" do
       @p.body.should_receive(:length)
       @p.printDescription
@@ -35,6 +38,7 @@ describe Post do
       before(:each) do
         @p.body="une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b] une chaine avec [b]un mot en gras[/b]"
         @p.save
+        @p.body.stub(:length){400}
       end
       it "should take the 300 first chars" do
         @p.body.should_receive(:[])
@@ -80,6 +84,7 @@ describe Post do
   
    describe "getTag" do
     before(:each) do
+      allow_message_expectations_on_nil
       @tag=[double(Tag)]
       @p.stub(:tags){@tags}
       @t=["tag1"]
@@ -95,4 +100,6 @@ describe Post do
       @p.getTag
     end
   end
+  
+
 end

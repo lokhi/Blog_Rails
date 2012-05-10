@@ -67,6 +67,17 @@ div.flash-msg{
   padding:15px 10px 15px 50px;
   margin-bottom:50px;
 }
+/*ED1212*/
+div.flash-error{
+  font-family:Arial;
+  color:#FFFFFF;
+  font-size:18px;
+  background:url(error.png) no-repeat center left,#C71313 ;
+  border:1px solid #AF0E0E;
+  border-radius: 5px;
+  padding:15px 10px 15px 50px;
+  margin-bottom:50px;
+}
 
 div.search-msg{
   font-family:Arial;
