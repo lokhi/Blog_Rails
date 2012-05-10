@@ -67,7 +67,7 @@ class PostsController < ApplicationController
   
   def search
     val=params[:search]
-    @posts = Post.where("title like '%#{val}%' or body like '%#{val}%'")
+    @posts = Post.find(:all,:conditions=> [ "title LIKE ? OR body LIKE ?", "%#{val}%","%#{val}%" ]) 
     flash[:search] = "No posts found. Try a different search ?" if @posts.empty?
     render :index
   end

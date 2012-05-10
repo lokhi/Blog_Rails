@@ -161,12 +161,12 @@ describe PostsController do
   describe "POST '/posts/search'" do
    before(:each) do
       @p = double(Post)
-      Post.stub(:where){@p}
+      Post.stub(:find){@p}
       @params={:search=>"hello"}
       @p.stub(:empty?){false}
     end
    it "should search post content the params" do
-     Post.should_receive(:where)
+     Post.should_receive(:find)
      post 'search', @params
    end
    
