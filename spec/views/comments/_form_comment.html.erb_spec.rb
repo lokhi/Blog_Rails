@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "/comments/_form_comment" do
   before(:each) do
+    view.stub(:current_user){"toto"}
     @p=stub_model(Post, :title => "title1",:body => "Content test")
     assign(:post,@p)
   end

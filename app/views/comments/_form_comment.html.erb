@@ -7,7 +7,11 @@
 <p>Add your comment </p>
 <%= form_tag("/posts/#{@post.id}/comments", :method => "post",:remote => true) do %>
 <%= label(:comment,:name, "name :") %>
+<% if current_user %>
+<%= text_field(:comment, :name, :size => 55,:class => "form-field",:value => current_user) %>
+<% else %>
 <%= text_field(:comment, :name, :size => 55,:class => "form-field") %>
+<% end %>
 <br /><br />
 <%= label(:comment,:content, "content :", :id => "labelarea") %>
 <%= text_area(:comment, :content, :size => "55x10", :class => "form-field") %>

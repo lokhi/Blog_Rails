@@ -1,6 +1,7 @@
 require 'spec_helper'
 describe "posts/show" do
   before(:each) do
+    view.stub(:current_user){"toto"}
     @p=stub_model(Post, :title => "title1",:body => "Content test")
     @p.stub(:getTag){"tag1,tag2"}
      assign(:post,@p)
