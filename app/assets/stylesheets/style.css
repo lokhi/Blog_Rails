@@ -67,7 +67,7 @@ div.flash-msg{
   padding:15px 10px 15px 50px;
   margin-bottom:50px;
 }
-/*ED1212*/
+
 div.flash-error{
   font-family:Arial;
   color:#FFFFFF;
@@ -108,6 +108,11 @@ div.post-title{
 }
 h1.post-title{
   font-size:24px;  
+}
+
+h1.post-title a{
+  color:#000000;
+  text-decoration:none;
 }
 span.adminlink a{
  color:#1E65A6;

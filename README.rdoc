@@ -1,7 +1,7 @@
 == Projet Blog
 
 Ce blog est fait en Ruby on Rails, c'est un projet du cours d'application internet du semestre 4 de la formation informatique et réseaux à l'ENSEEIHT.
-Les authentifications sont gérées grâce au premier projet de ce cours le Service d'Authentification : https://github.com/lokhi/project_I_authentification
+Les authentifications sont gérées grâce au premier projet de ce cours, le Service d'Authentification : https://github.com/lokhi/project_I_authentification
 
 
 == Pour commencer
@@ -20,7 +20,7 @@ Les authentifications sont gérées grâce au premier projet de ce cours le Serv
 
 Une fois sur le blog vous pouvez voir les 3 derniers articles affichés sur la page, vous pouvez voir les autres articles en changeant de page grâce aux boutons situés sous les articles.
 
-Sur le côté vous avez un champs de recherche, une petite description de l'auteur, la partie administration, ainsi que les la liste des cinq derniers artciels et des cinq derniers commentaires.
+Sur le côté vous avez un champs de recherche, une petite description de l'auteur, la partie administration, ainsi que les la liste des cinq derniers articles et des cinq derniers commentaires.
 
 
 == L'administration du blog
@@ -31,12 +31,18 @@ Vous allez être redirigé vers le Service d'Authentification. Vous pouvez utili
   
 Vous pouvez à présent voir sous les titres de chaque articles les liens pour éditer ou supprimer les articles.
 La création d'un article ce fait grâce au lien en bas de la page listant les articles. Ce lien affiche le formulaire de création.
-Un article est composé d'un titre,d'un corps et de tags. Vous pouvez ajouter dans le corps des balise bbcode afin d'ajouter des images, des videos, des listes, etc...
-  liste des balise bbcode possible ici : https://github.com/cpjolicoeur/bb-ruby
+Un article est composé d'un titre,d'un corps et de tags. Vous pouvez ajouter dans le corps des balises bbcode afin de pouvoir insérer des images, des videos, des listes, etc...
+  *liste des balises bbcode utilisables ici : https://github.com/cpjolicoeur/bb-ruby
 
 
 == Les tests
 
 Pour lancer les test lancer la commande suivante (Attention le service d'authentification doit être lancé)
   rspec spec/*
+  
+N.B: Il y a deux tests qui ne passent pas dans le fichier de test du model Post.
 
+
+== JavaScript
+
+Le blog utilise le javascript pour l'administration de celui ci. Mais si vous désactivez le javascript l'administration est toujours fonctionnelle.
